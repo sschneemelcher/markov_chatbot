@@ -1,3 +1,5 @@
+import pickle
+
 path = '../training_data.txt'
 
 dict = {}
@@ -6,6 +8,7 @@ with open(path, 'r', encoding='utf-8') as f:
     lines = f.read().split('\n')
 
 for line in lines:
+    line = line.lower()
     line.replace('\t', ' ')
     words = line.split(' ')
     for i in range(len(words) - 2):
@@ -16,3 +19,8 @@ for line in lines:
 
 
 print(dict)
+
+
+f = open("markov_dict.pkl","wb")
+pickle.dump(dict,f)
+f.close()

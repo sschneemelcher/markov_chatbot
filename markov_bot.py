@@ -7,6 +7,7 @@ f.close()
 
 
 def generate_text(inp):
+    inp = inp.lower()
     answer = ''
     inpwords = inp.split(' ')
     if len(inpwords) > 1:
@@ -16,6 +17,7 @@ def generate_text(inp):
             inpwords = random.choice(inp).split(' ')
             answer = answer + str(inpwords[1]) + ' '
             i = i + 1
+            print(answer)
             if i > 50:
                 break
     else:
